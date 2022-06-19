@@ -1,0 +1,9 @@
+@font-face {
+    font-family:main;
+    src:url("./KGRedHands.ttf");
+}
+
+@font-face {
+    font-family:para;
+    src:url("./slim-sans-serif/SlimSansSerif-Bold.ttf")
+}

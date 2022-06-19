@@ -1,0 +1,27 @@
+.container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    height:auto;
+    margin-top: 50px;
+}
+
+.header{
+    height:100%;
+    position: fixed;
+    top: 0px;
+    left:0px;
+    z-index: 6;
+}
+
+.posts{
+    width:70%;
+    backdrop-filter: blur(5px);
+}
+
+@media(max-width:800px) {
+    .posts{
+        width:100%;
+    }
+}

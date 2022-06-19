@@ -1,0 +1,84 @@
+
+<div class="header">
+    <metro-header></metro-header>
+</div>
+
+<div class="container">
+
+    <div class="switchbar-bar">
+        <h3 class="switcher" (click)="switchCase = 'country' " >country</h3>
+        <h3 class="switcher" (click)="switchCase = 'following' " >following</h3>
+        <h3 class="switcher" (click)="switchCase = 'global' " >global</h3>
+    </div>
+
+    <div class="by-country group" *ngIf="switchCase == 'country'">
+        <div class="card" *ngFor="let person of byCountrypeople">
+
+            <div class="info">
+
+                <div *ngIf="person.image"  (click)="toHisPage(person.email)" class="image">
+                    <img *ngIf="person.image.length > 1"  [src]=" URL + person.image">
+                </div>
+
+                <div  class="name" *ngIf="person.email != myEmail">
+                    <p (click)="toHisPage(person.email)">{{ person.name }}</p>
+                </div>
+
+            </div>
+
+            <div class="follow-button" *ngIf="person.email != myEmail">
+                <app-follow [p2]="person.email"></app-follow>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="by-following group" *ngIf="switchCase == 'following'">
+        <div class="card" *ngFor="let person of byFollowingpeople">
+
+            <div class="info" *ngIf="person.email != myEmail">
+
+
+                <div *ngIf="person.image"  (click)="toHisPage(person.email)" class="image">
+                    <img *ngIf="person.image.length > 1"  [src]=" URL + person.image">
+                </div>
+
+                <div  class="name" *ngIf="person.email != myEmail">
+                    <p (click)="toHisPage(person.email)">{{ person.name }}</p>
+                </div>
+
+            </div>
+
+            <div class="follow-button" *ngIf="person.email != myEmail">
+                <app-follow [p2]="person.email"></app-follow>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="by-global group" *ngIf="switchCase == 'global' ">
+
+        <app-search-box class="search-box" (onWrite)="filter($event)"></app-search-box>
+
+        <div class="card" *ngFor="let person of byGlobalpeople">
+
+            <div class="info" *ngIf="person.email != myEmail">
+
+                <div *ngIf="person.image"  (click)="toHisPage(person.email)" class="image">
+                    <img *ngIf="person.image.length > 1"  [src]=" URL + person.image">
+                </div>
+
+                <div  class="name" *ngIf="person.email != myEmail">
+                    <p (click)="toHisPage(person.email)">{{ person.name }}</p>
+                </div>
+
+            </div>
+
+            <div class="follow-button" *ngIf="person.email != myEmail">
+                <app-follow [p2]="person.email"></app-follow>
+            </div>
+
+        </div>
+    </div>
+
+</div>
